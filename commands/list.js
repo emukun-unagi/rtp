@@ -7,8 +7,8 @@ module.exports = {
   description: 'list command',
   execute(client, message, args) {
     const userID = message.author.id;
-    if (userID !== config.owner) {
-      return;
+    if (userID !== config.owner && userID !== config.subOwner) {
+      return
     }
 
     const whitelistPath = path.join(__dirname, '../whitelist.json');
