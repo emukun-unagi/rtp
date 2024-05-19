@@ -4,6 +4,16 @@ module.exports = {
     name: 'gpt',
     description: 'gpt command',
     async execute(message, args) {
+        const userID = message.author.id;
+
+        const whitelistPath = path.join(__dirname, '../whitelist.json');
+
+        const whitelist = JSON.parse(fs.readFileSync(whitelistPath, 'utf8'));
+
+        if (!whitelist.allowedUsers.includes(userID) && userID !== config.owner) {
+            return;
+        }
+        
         const inputText = args.join(' ');
 
         try {
