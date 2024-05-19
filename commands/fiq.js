@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'miq',
-    description: 'miq command',
+    name: 'fiq',
+    description: 'fiq command',
     async execute(message, args) {
 
         if (args.length < 2) {
