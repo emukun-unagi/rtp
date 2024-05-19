@@ -4,9 +4,6 @@ module.exports = {
     async execute(message) {
         if (message.reference) {
             const repliedMessage = message.channel.messages.cache.get(message.reference.messageId);
-            if (repliedMessage) {
-                console.log(repliedMessage);
-            }
             const user = repliedMessage.author;
             const avatarURL = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`;
 
