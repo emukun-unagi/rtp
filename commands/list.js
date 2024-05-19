@@ -5,7 +5,7 @@ const config = require('../config.json');
 module.exports = {
   name: 'list',
   description: 'list command',
-  execute(client, message, args) {
+  execute(message, args, client) {
     const userID = message.author.id;
     if (userID !== config.owner && userID !== config.subOwner) {
       return
