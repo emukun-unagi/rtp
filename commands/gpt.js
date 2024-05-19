@@ -1,3 +1,5 @@
+const config = require('../config.json');
+
 module.exports = {
     name: 'gpt',
     description: 'gpt command',
