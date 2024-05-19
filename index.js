@@ -98,4 +98,16 @@ client.on('messageCreate', async message => {
   }
 });
 
+client.on('messageReactionAdd', async (reaction, user) => {
+  if (reaction.emoji.name === '🗑️') {
+    reaction.message.reactions.cache.get('🗑️').users.fetch().then(users => {
+      if (users.size === 2) {
+        reaction.message.edit({
+          content: '🗑️削除しました',
+        });
+      }
+    });
+  }
+});
+
 client.login(process.env.token);
