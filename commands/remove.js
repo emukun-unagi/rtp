@@ -7,7 +7,7 @@ module.exports = {
     description: 'remove command',
     execute(message, args) {
         const userID = message.author.id;
-        if (userID === config.owner) {
+        if (userID === config.owner && userID !== config.subOwner) {
             if (!args[0]) {
                 return message.reply('削除するユーザーIDを入力してください');
             }
