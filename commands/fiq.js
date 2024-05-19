@@ -49,7 +49,11 @@ module.exports = {
         })
         .then(response => response.json())
         .then(data => {
-          message.channel.send(data.url);
+            const imageUrl = data.url;
+            const miq = message.channel.send({
+                content: imageUrl,
+            });
+            miq.then(msg => msg.react('🗑️'))
         })
     },
 };
