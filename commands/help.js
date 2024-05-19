@@ -18,23 +18,16 @@ module.exports = {
         }
 
         const helpMessage = `**コマンド一覧:**\n\`\`\`\n` +
-            `BOT: help, ping\n` +
-            `r#help\n` +
-            `ヘルプを表示します\n` +
-            `r#ping\n` +
-            `PINGを計測します\n` +
+            `BOT:\n` +
+            `r#help/ヘルプを表示します\n` +
+            `r#ping/PINGを計測します\n` +
             `遊び:\n` +
-            `r#gpt テキスト\n` +
-            `AIと話します\n` +
-            `r#miq\n` +
-            `メッセージに返信して使うとそのメッセージのMake it a Quoteを生成します\n` +
-            `r#fiq\n` +
-            `偽物のMake it a Quoteを生成します\n` +
+            `r#gpt テキスト/AIと話します\n` +
+            `r#miq/メッセージに返信して使うとそのメッセージのMake it a Quoteを生成します\n` +
+            `r#fiq ユーザー テキスト/偽物のMake it a Quoteを生成します\n` +
             `オーナー:\n` +
-            `r#add ユーザーID\n` +
-            `ユーザーをホワイトリストに追加します\n` +
-            `r#remove ユーザーID\n` +
-            `ユーザーをホワイトリストから削除します\n` +
+            `r#add ユーザーID/ユーザーをホワイトリストに追加します\n` +
+            `r#remove ユーザーID/ユーザーをホワイトリストから削除します\n` +
             `\`\`\``;
         message.reply(helpMessage);
     },
