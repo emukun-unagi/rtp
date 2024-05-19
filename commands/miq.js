@@ -9,7 +9,7 @@ module.exports = {
 
         const displayName = user.displayName;
         const name = user.username;
-        const text = content;
+        const text = baseMessagecontent;
         const icon = user.displayAvatarURL();
         const brand = "Make it a Quote#6666";
 
