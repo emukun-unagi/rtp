@@ -29,6 +29,7 @@ module.exports = {
             `オーナー:\n` +
             `r#add ユーザーID/ユーザーをホワイトリストに追加します\n` +
             `r#remove ユーザーID/ユーザーをホワイトリストから削除します\n` +
+            `r#list/ホワイトリストのユーザー一覧を表示します\n` +
             `\`\`\``;
         message.reply(helpMessage);
     },
