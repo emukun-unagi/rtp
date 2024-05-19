@@ -5,9 +5,9 @@ const config = require('../config.json');
 module.exports = {
   name: 'list',
   description: 'list command',
-  execute(client, message, args) {
+  execute(message, args) {
     const userID = message.author.id;
-    if (userID !== config.owner && userID !== config.subOwner) {
+    if (userID !== config.owner) {
       return;
     }
 
@@ -23,14 +23,8 @@ module.exports = {
 
     let userList = '';
     whitelist.allowedUsers.forEach((id, index) => {
-      const user = client.users.cache.get(id);
-      if (user) {
-        userList += `${user.tag}(${id})\n`;
-      } else {
-        userList += `Unknown User(${id})\n`;
-      }
-});
-
+      userList += `${id}\n`;
+    });
 
     message.channel.send(userList, { split: true });
   },
