@@ -4,6 +4,16 @@ module.exports = {
     name: 'miq',
     description: 'miq command',
     async execute(message) {
+        const userID = message.author.id;
+
+        const whitelistPath = path.join(__dirname, '../whitelist.json');
+
+        const whitelist = JSON.parse(fs.readFileSync(whitelistPath, 'utf8'));
+
+        if (!whitelist.allowedUsers.includes(userID) && userID !== config.owner) {
+            return;
+        }
+        
         if (message.reference) {
             const repliedMessage = message.channel.messages.cache.get(message.reference.messageId);
             const user = repliedMessage.author;
