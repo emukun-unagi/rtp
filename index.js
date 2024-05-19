@@ -90,17 +90,23 @@ client.on('messageCreate', async message => {
       .then(data => {
         const imageUrl = data.url;
         const miq = message.channel.send({
-          content: imageUrl,
+            content: imageUrl,
         });
-        miq.react('🗑️').then(() => {
-          miq.awaitReactions({ filter: (reaction, user) => reaction.emoji.name === '🗑️' && user.id !== client.user.id, max: 1, time: 0, errors: ['time'] }).then(() => {
-            if (message.reactions.cache.get('🗑️').count === 2) {
-              miq.edit("削除しました")
-            }
-          });
-        });
+        miq.then(msg => msg.react('🗑️'))
       })
     }
+  }
+});
+
+client.on('messageReactionAdd', async (reaction, user) => {
+  if (reaction.emoji.name === '🗑️' && user.id === message.author.id) {
+    reaction.message.reactions.cache.get('🗑️').users.fetch().then(users => {
+      if (users.size === 2) {
+        reaction.message.edit({
+          content: '🗑️削除しました',
+        });
+      }
+    });
   }
 });
 
