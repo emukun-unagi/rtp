@@ -22,13 +22,13 @@ module.exports = {
             `r#help/ヘルプを表示します\n` +
             `r#ping/PINGを計測します\n` +
             `遊び:\n` +
-            `r#gpt/テキスト/AIと話します\n` +
+            `r#gpt テキスト/AIと話します\n` +
             `r#miq/メッセージに返信して使うとそのメッセージのMake it a Quoteを生成します\n` +
-            `r#fiq/ユーザー テキスト/偽物のMake it a Quoteを生成します\n` +
-            `r#snipe/カウント/削除または編集されたメッセージを送信します\n` +
+            `r#fiq ユーザー テキスト/偽物のMake it a Quoteを生成します\n` +
+            `r#snipe カウント/削除または編集されたメッセージを送信します\n` +
             `オーナー:\n` +
-            `r#add/ユーザーID/ユーザーをホワイトリストに追加します\n` +
-            `r#remove/ユーザーID/ユーザーをホワイトリストから削除します\n` +
+            `r#add ユーザーID/ユーザーをホワイトリストに追加します\n` +
+            `r#remove ユーザーID/ユーザーをホワイトリストから削除します\n` +
             `\`\`\``;
         message.reply(helpMessage);
     },
