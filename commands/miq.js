@@ -4,7 +4,7 @@ module.exports = {
     async execute(message) {
         const baseMessage = message.reference;
         const user = baseMessage.author;
-      
+        console.log(user);
         const avatarURL = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`;
 
         const displayName = user.displayName;
