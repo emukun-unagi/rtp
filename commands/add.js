@@ -7,7 +7,7 @@ module.exports = {
     description: 'add command',
     execute(message, args) {
         const userID = message.author.id;
-        if (userID === config.owner && userID == config.subOwner) {
+        if (userID === config.owner && userID === config.subOwner) {
             if (!args[0]) {
                 return message.reply('追加するユーザーIDを入力してください');
             }
