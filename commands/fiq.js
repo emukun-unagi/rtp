@@ -22,7 +22,7 @@ module.exports = {
         }
 
         if (!user) {
-            return message.reply('指定されたユーザーが見つかりません。');
+            return message.reply('指定されたユーザーが見つかりません');
         }
         
         const avatarURL = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`;
