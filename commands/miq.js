@@ -29,7 +29,7 @@ module.exports = {
             .then(response => response.json())
             .then(data => {
                 const imageUrl = data.url;
-                const miq = message.channel.send({
+                const miq = message.reply({
                     content: imageUrl,
                 });
                 miq.then(msg => msg.react('🗑️'))
