@@ -92,7 +92,7 @@ client.on('messageCreate', async message => {
         const miq = message.channel.send({
           content: imageUrl,
         });
-        miq.react('🔍').then(() => {
+        miq.react('🗑️').then(() => {
           miq.awaitReactions({ filter: (reaction, user) => reaction.emoji.name === '🗑️' && user.id !== client.user.id, max: 1, time: 0, errors: ['time'] }).then(() => {
             if (message.reactions.cache.get('🗑️').count === 2) {
               miq.edit("削除しました")
