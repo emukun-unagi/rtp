@@ -99,7 +99,7 @@ client.on('messageCreate', async message => {
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
-  if (reaction.emoji.name === '🗑️' && user.id === client.user.id) {
+  if (reaction.emoji.name === '🗑️') {
     reaction.message.reactions.cache.get('🗑️').users.fetch().then(users => {
       if (users.size === 2) {
         reaction.message.edit({
