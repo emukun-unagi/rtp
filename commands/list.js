@@ -23,9 +23,14 @@ module.exports = {
 
     let userList = '';
     whitelist.allowedUsers.forEach((id, index) => {
-      const user = client.users.cache.get()
-      userList += `${user.tag}(${id})\n`;
-    });
+      const user = client.users.cache.get(id);
+      if (user) {
+        userList += `${user.tag}(${id})\n`;
+      } else {
+        userList += `Unknown User(${id})\n`;
+      }
+});
+
 
     message.channel.send(userList, { split: true });
   },
