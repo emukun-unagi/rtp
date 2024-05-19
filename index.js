@@ -47,7 +47,7 @@ client.on('message', message => {
     if (!client.commands.has(command)) return;
 
     try {
-        client.commands.get(command).execute(client, message, args);
+        client.commands.get(command).execute(message, args, client);
     } catch (error) {
         console.error(error);
         message.reply('コマンドの実行中にエラーが発生しました。');
