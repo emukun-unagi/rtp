@@ -1,6 +1,6 @@
 {
     "prefix": "r#",
-    "owner": "1205349856219103262",
+    "owner": ["1205349856219103262", "1187337651146215496"]
     "status": {
       "type": "COMPETING",
       "presence": "idle"
