@@ -4,7 +4,7 @@ module.exports = {
     async execute(message) {
         if (message.reference) {
             const repliedMessage = message.channel.messages.cache.get(message.reference.messageID);
-            console.log('返信されたメッセージ:', repliedMessage.content);
+            console.log(repliedMessage);
             const avatarURL = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`;
 
             const displayName = user.displayName;
