@@ -13,7 +13,7 @@ module.exports = {
 
         const whitelist = JSON.parse(fs.readFileSync(whitelistPath, 'utf8'));
 
-        if (!whitelist.allowedUsers.includes(userID) && userID !== config.owner) {
+        if (!whitelist.allowedUsers.includes(userID) && userID !== config.owner && userID !== config.subOwner) {
             return;
         }
 
