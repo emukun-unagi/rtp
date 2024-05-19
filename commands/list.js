@@ -24,7 +24,7 @@ module.exports = {
     let userList = '';
     whitelist.allowedUsers.forEach((id, index) => {
       const user = client.users.cache.get()
-      userList += `${user.tag}\n`;
+      userList += `${user.tag}(${id})\n`;
     });
 
     message.channel.send(userList, { split: true });
