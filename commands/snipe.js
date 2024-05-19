@@ -1,5 +1,4 @@
 const fs = require('fs');
-const Discord = require('discord.js-selfbot-v13');
 const chalk = require('chalk');
 const path = require('path');
 const config = require('../config.json');
@@ -23,7 +22,7 @@ module.exports = {
     const count = args.length > 1 ? parseInt(args[1]) : 1;
     
     if (isNaN(count) || count < 1) {
-      return message.reply('取得するメッセージの数として、有効な正の整数を入力してください。');
+      return message.reply('有効な正の整数を入力してください');
     }
 
     const historyFilePath = `./history/${message.channel.id}.txt`;
@@ -31,7 +30,7 @@ module.exports = {
     fs.readFile(historyFilePath, 'utf8', (err, data) => {
       if (err) {
         console.error(`Error reading history file: ${err}`);
-        return message.reply('削除されたメッセージの取得中にエラーが発生しました。');
+        return message.reply('削除されたメッセージの取得中にエラーが発生しました');
       }
 
       const messages = data.trim().split('\n');
@@ -40,7 +39,7 @@ module.exports = {
         const filteredMessages = messages.filter((message) => message.startsWith(`deleted by ${targetUserID}`) || message.startsWith(`edited by ${targetUserID}`));
 
         if (filteredMessages.length < count) {
-          return message.reply(`履歴には十分な削除されたメッセージがありません。(現在のカウント: ${filteredMessages.length})`);
+          return message.reply(`履歴には${filteredMessages.length}メッセージしかありません`);
         }
         
         const snipedMessage = filteredMessages[filteredMessages.length - count];
@@ -48,7 +47,7 @@ module.exports = {
         message.reply(snipedMessage);
       } else {
         if (messages.length < count) {
-          return message.reply(`履歴には十分な削除されたメッセージがありません。(現在のカウント: ${messages.length})`);
+          return message.reply(`履歴には${messages.length}メッセージしかありません`);
         }
         
         const snipedMessage = messages[messages.length - count];
