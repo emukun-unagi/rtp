@@ -10,7 +10,7 @@ module.exports = {
         const whitelist = JSON.parse(fs.readFileSync(whitelistPath, 'utf8'));
         const userID = message.author.id;
 
-        if (whitelist.allowedUsers.includes(userID) || userID === config.owner) {
+        if (whitelist.allowedUsers.includes(userID) || userID === config.owner && userID !== config.subOwner) {
             message.reply('Pinging...').then(sentMessage => {
                 const ping = sentMessage.createdTimestamp - message.createdTimestamp;
                 sentMessage.edit(`${ping}ms`);
