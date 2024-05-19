@@ -23,7 +23,7 @@ module.exports = {
 
     let userList = '';
     whitelist.allowedUsers.forEach((id, index) => {
-      const userListData = client.users.fetch(id)
+      const userListData = client.users.cache.get(id)
       userList += `${userListData.tag}(${id})\n`;
     });
 
