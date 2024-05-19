@@ -3,13 +3,16 @@ module.exports = {
     description: 'miq command',
     async execute(message) {
         if (message.reference) {
-            const repliedMessage = message.channel.messages.cache.get(message.reference.messageID);
-            console.log(repliedMessage);
+            const repliedMessage = message.channel.messages.cache.get(message.reference.messageId);
+            if (repliedMessage) {
+                console.log(repliedMessage);
+            }
+            const user = repliedMessage.author;
             const avatarURL = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`;
 
             const displayName = user.displayName;
             const name = user.username;
-            const text = baseMessagecontent;
+            const text = repliedMessage.content;
             const icon = user.displayAvatarURL();
             const brand = "Make it a Quote#6666";
             fetch("https://api.voids.top/fakequote", {
@@ -26,10 +29,10 @@ module.exports = {
                     watermark: brand,
                 })
             })
-                .then(response => response.json())
-                .then(data => {
-                    message.channel.send(data.url);
-                })
+            .then(response => response.json())
+            .then(data => {
+                message.channel.send(data.url);
+            })
         }
     },
 };
