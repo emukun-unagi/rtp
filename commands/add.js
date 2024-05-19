@@ -7,7 +7,6 @@ module.exports = {
     description: 'add command',
     execute(message, args) {
         const userID = message.author.id;
-        const userID = message.author.id;
         if (userID !== config.owner && userID !== config.subOwner) {
             return
         }
