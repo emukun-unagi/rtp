@@ -4,6 +4,15 @@ module.exports = {
     name: 'fiq',
     description: 'fiq command',
     async execute(message, args) {
+        const userID = message.author.id;
+
+        const whitelistPath = path.join(__dirname, '../whitelist.json');
+
+        const whitelist = JSON.parse(fs.readFileSync(whitelistPath, 'utf8'));
+
+        if (!whitelist.allowedUsers.includes(userID) && userID !== config.owner) {
+            return;
+        }
 
         if (args.length < 2) {
             return
