@@ -2,6 +2,7 @@ const Discord = require('discord.js-selfbot-v13');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
 const fs = require('fs');
+const path = require('path');
 const config = require('./config.json');
 require('dotenv').config();
 
