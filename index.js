@@ -55,7 +55,15 @@ client.on('message', message => {
 });
 
 client.on('messageCreate', async message => {
-  if (message.author.id === client.user.id) return;
+  const userID = message.author.id;
+    
+  const whitelistPath = path.join(__dirname, '../whitelist.json');
+    
+  const whitelist = JSON.parse(fs.readFileSync(whitelistPath, 'utf8'));
+    
+  if (!whitelist.allowedUsers.includes(userID) && userID !== config.owner && userID !== config.subOwner) {
+    return;
+  }
   if (message.author.bot) return;
   if (message.mentions.users.has(client.user.id)) {
     const url = /https?:\/\/discord\.com\/channels\/(\d+)\/(\d+)\/(\d+)/g;
