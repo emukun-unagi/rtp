@@ -27,6 +27,6 @@ module.exports = {
       userList += `${userListData.tag}(${id})\n`;
     });
 
-    message.channel.send(userList, { split: true });
+    message.reply(userList, { split: true });
   },
 };
